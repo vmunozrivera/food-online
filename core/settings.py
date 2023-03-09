@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-from decouple import config
+from decouple import Config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,11 +21,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
-SECRET_KEY = 'django-insecure-3m%8f2mi9e7z&###99g=g@$@sn0!hyu@*3uz!qz*iwa1+!&+x$'
+SECRET_KEY = Config('SECRET_KEY')
+#SECRET_KEY = 'django-insecure-3m%8f2mi9e7z&###99g=g@$@sn0!hyu@*3uz!qz*iwa1+!&+x$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', cast=bool)
+DEBUG = Config('DEBUG')
 
 ALLOWED_HOSTS = []
 
@@ -128,6 +128,10 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles/'
 STATICFILES_DIRS = ['core/static']
 
+# Media Files
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -136,3 +140,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Custom user model
 AUTH_USER_MODEL = 'accounts.User'
+
